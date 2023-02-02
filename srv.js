@@ -3,12 +3,21 @@ const path = require('path');
 const directory = './src/ortho';
 
 var parser = require('tree-parser');
-
+const cors = require('cors');
 var tree = parser(directory);
 
 const express = require("express");
 
 const app = express();
+
+
+app.use(cors());
+app.options('*', cors());
+
+
+//app.use(cors({
+//  origin: '*'
+//}));
 
 app.get("/api", (req, res) => {
     //return res.send("Received get method");

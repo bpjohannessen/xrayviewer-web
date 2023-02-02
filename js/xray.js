@@ -20,7 +20,7 @@ $(document).ready(function() {
 	});
 	
 
-		var $queryurl = "http://localhost:3000/api";
+		var $queryurl = "http://fettenajs.com/api";
 		console.log($queryurl);
 
 		$.getJSON($queryurl, function (json) {

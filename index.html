@@ -1,61 +1,3 @@
-<!--
-<?php
-// counter
-session_start();
-$counter_name = "counter.txt";
-// Check if a text file exists. If not create one and initialize it to zero.
-if (!file_exists($counter_name)) {
-    $f = fopen($counter_name, "w");
-    fwrite($f,"0");
-    fclose($f);
-}
-// Read the current value of our counter file
-$f = fopen($counter_name,"r");
-$counterVal = fread($f, filesize($counter_name));
-fclose($f);
-// Has visitor been counted in this session?
-// If not, increase counter value by one
-if(!isset($_SESSION['hasVisited'])){
-    $_SESSION['hasVisited']="yes";
-    $counterVal++;
-    $f = fopen($counter_name, "w");
-    fwrite($f, $counterVal);
-    fclose($f);
-}
-
-// Set variables for different courses and stuff
-// Should probably be re-coded
-
-if(@$_GET["course"]=="pneumo") {
-    $src = "./src/thorax/";
-    $hide = "?course=pneumo&amp;hidden=1";
-    $reveal = "?course=pneumo";
-    $_1Course = "Orthopedics";
-    $_1CourseLink = "?";
-    $_2Course = "Pediatric surgery";
-    $_2CourseLink = "?course=pedsurg";
-
-} elseif(@$_GET["course"]=="pedsurg") {
-    $src = "./src/pedsurg/";
-    $hide = "?course=pedsurg&amp;hidden=1";
-    $reveal = "?course=pedsurg";
-    $_1Course = "Orthopedics";
-    $_1CourseLink = "?";
-    $_2Course = "Pneumology";
-    $_2CourseLink = "?course=pneumo";
-
-} else {
-    $src = "./src/ortho/";
-    $hide = "?hidden=1";
-    $reveal = "?hidden=0";
-    $_1Course = "Pneumology";
-    $_1CourseLink = "?course=pneumo";
-    $_2Course = "Pediatric surgery";
-    $_2CourseLink = "?course=pedsurg";
-}
-
-?>
--->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -94,7 +36,7 @@ if(@$_GET["course"]=="pneumo") {
   <script src="js/magnific-popup.js"></script>
 
   <!-- Custom xray JS -->
-  <script src="js/xray.js"></script>
+
   <script>
 
 // $(document).ready(function() {
@@ -120,6 +62,7 @@ if(@$_GET["course"]=="pneumo") {
 // });
 
 </script>
+<script src="js/xray.js"></script>
 
 </head>
 <body>
@@ -142,6 +85,9 @@ if(@$_GET["course"]=="pneumo") {
     <div class="row">
         <div class="two columns"></div>
         <div class="ten columns" id="main">
+            <table id="tableMain">
+
+            </table>
 
 
 <!--<?php

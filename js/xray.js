@@ -44,12 +44,12 @@ $(document).ready(function() {
 				$table.append("<tbody class='popup-gallery' id='gallery"+key+"'><tr>")
 				$gallerybody = $("tbody#gallery"+key);
 
-				var noImages = value._images.length;
+				var noImages = value._contents.length;
 				var noLeft;
 				console.log("Number:" + noImages);
 
 
-				$.each(value._images, function(id, image) {
+				$.each(value._contents, function(id, image) {
 
 					//$filename = $src.$folder."/".$file;
 					var filename = "./src/ortho/"+key + "/" + image;

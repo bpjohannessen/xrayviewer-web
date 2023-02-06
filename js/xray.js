@@ -35,7 +35,8 @@ $(document).ready(function() {
 				$table.append("<thead id='thead"+key+"'><tr><th colspan='2' id='th"+key+"'>");
 				var $th = $("th#th"+key);
 				// console.log("pikken 1:" + value._desc);
-				$th.append("<h5><a href='#' onclick='$(hiddenText" + key +").show(); return false;'>#"+key+"</a><span style='display: none;' id='hiddenText"+key+"'> "+value._desc+"</span>");
+				console.log("DIagnosis: " + value._desc.diagnosis);
+				$th.append("<h5><a href='#' onclick='$(hiddenText" + key +").show(); return false;'>#"+key+"</a><span style='display: none;' id='hiddenText"+key+"'> "+value._desc.diagnosis+"</span>");
 				// + key + " - " +	value._desc + "</h5>");
 				//$header = "<a href='#' onclick='$(hiddenText".$key.").show(); return false;'>#".$key."</a><span style=\"display: none;\" id=\"hiddenText".$key."\"> - ".$fr."</span>";
 

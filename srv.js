@@ -4,7 +4,7 @@ const directory = './src/ortho';
 
 var parser = require('tree-parser');
 const cors = require('cors');
-var tree = parser(directory);
+var tree = parser(directory, '_desc');
 
 const express = require("express");
 

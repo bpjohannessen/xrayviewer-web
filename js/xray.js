@@ -19,7 +19,7 @@ $(document).ready(function() {
 		});
 	});
 	
-
+		// EDIT THE NEXT LINE
 		var $queryurl = "http://fettenajs.com/api";
 		console.log($queryurl);
 

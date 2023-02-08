@@ -1,0 +1,7 @@
+{
+    "server":
+    {
+        "host": "http://fettenajs.com",
+        "port": 3000
+    }
+}

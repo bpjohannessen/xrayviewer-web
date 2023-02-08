@@ -1,48 +1,50 @@
-const fs = require('fs');
-const path = require('path');
-const directory = './src/ortho';
+/*
+ * Server for xrayviewer-web
+ */
 
-var parser = require('tree-parser');
-const cors = require('cors');
-var tree = parser(directory, '_desc');
+// Directories for different courses
+const directory = "./src/ortho";
 
+// Required packages
+const fs = require("fs");
+const path = require("path");
+const cors = require("cors");
+var parser = require("tree-parser");
+var tree = parser(directory, "_desc");
 const express = require("express");
-
 const app = express();
 
+// Imports the config and port which the server is listening on
+const config = require("config");
+const api_port = config.get("server.port");
 
+console.log("Running with config:");
+console.log(config);
+console.log("\n");
+
+// Cors config
 app.use(cors());
-app.options('*', cors());
+app.options("*", cors());
 
 
-//app.use(cors({
-//  origin: '*'
-//}));
-
+// Returns information about all images in json format
 app.get("/api", (req, res) => {
-    //return res.send("Received get method");
     return res.send(tree);
 })
 
 app.use(express.static(__dirname));
-//app.use(express.static(__dirname + '/src'));
-app.use('/static', express.static(path.join(__dirname, 'src/ortho')))
-console.log(path.join(__dirname, 'src/ortho'));
-app.use("*", (req, res) => {
-    res.send("404");
+
+// Serves the index.html
+app.get("/", function(req, res) {
+    res.sendFile(path.join(__dirname, "/index.html"));
 });
 
+// Returns 404 if any other file
+app.use("*", (req, res) => {
+  res.send("404");
+});
 
-
-
-app.get('/', function(req, res) {
-    res.sendFile(path.join(__dirname, '/index.html'));
-    console.log("kuk: " + __dirname);
-  });
-
-app.listen(3000, () =>
-  console.log(`Example app listening on port 3000!`),
-  //console.log(tree)
+// Starts the server on api_port
+app.listen(api_port, () =>
+  console.log(`Xrayviewer-web listening on port ${api_port}!`),
 );
-
-//console.log(tree);

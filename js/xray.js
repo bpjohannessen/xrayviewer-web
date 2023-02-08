@@ -19,8 +19,28 @@ $(document).ready(function() {
 		});
 	});
 	
+
+		window.onhashchange = function() {
+			window.location.reload();
+		}
 		// EDIT THE NEXT LINE
-		var $queryurl = "http://fettenajs.com/api";
+		var rooturl = "http://fettenajs.com"
+		const { hash } = window.location;
+		console.log(hash);
+		console.log(window.location);
+		var queryurl;
+		var prefix;
+		if(hash == "#pedsurg") {
+			$queryurl = rooturl + "/api/pedsurg";
+			prefix = "pedsurg";
+		} else if(hash == "#pulmo") {
+			$queryurl = rooturl + "/api/thorax";
+			prefix = "thorax";
+		} else {
+			$queryurl = rooturl + "/api/ortho";
+			prefix = "ortho";
+		}
+
 		console.log($queryurl);
 
 		$.getJSON($queryurl, function (json) {
@@ -52,13 +72,13 @@ $(document).ready(function() {
 				$.each(value._contents, function(id, image) {
 
 					//$filename = $src.$folder."/".$file;
-					var filename = "./src/ortho/"+key + "/" + image;
+					var filename = "./src/"+prefix+"/"+key + "/" + image;
 
 					console.log(filename);
 
 					console.log(id);
 					console.log(image);
-					$gallerybody.append("<td><a href="+filename+" title='FETTE NAJSs'><img src='./src/ortho/"+key + "/" +image+"' style='width: 100%; height: auto;'>");
+					$gallerybody.append("<td><a href="+filename+" title='FETTE NAJSs'><img src='./src/"+prefix+"/"+key + "/" +image+"' style='width: 100%; height: auto;'>");
 					noLeft = noImages - 1;
 					if(noLeft % 2 == 0) {
 						$gallerybody.append("</td></tr>");

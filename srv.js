@@ -3,14 +3,20 @@
  */
 
 // Directories for different courses
-const directory = "./src/ortho";
+const dir_ortho = "./src/ortho";
+const dir_pedsurg = "./src/pedsurg";
+const dir_thorax = "./src/thorax";
 
 // Required packages
 const fs = require("fs");
 const path = require("path");
 const cors = require("cors");
 var parser = require("tree-parser");
-var tree = parser(directory, "_desc");
+
+var tree_ortho = parser(dir_ortho, "_desc");
+var tree_pedsurg = parser(dir_pedsurg, "_desc");
+var tree_thorax = parser(dir_thorax, "_desc");
+
 const express = require("express");
 const app = express();
 
@@ -29,7 +35,19 @@ app.options("*", cors());
 
 // Returns information about all images in json format
 app.get("/api", (req, res) => {
-    return res.send(tree);
+    return res.send("Pick one: /api/ortho, /api/pedsurg, /api/thorax");
+});
+
+app.get("/api/ortho", (req, res) => {
+    return res.send(tree_ortho)
+});
+
+app.get("/api/pedsurg", (req, res) => {
+    return res.send(tree_pedsurg);
+});
+
+app.get("/api/thorax", (req, res) => {
+    return res.send(tree_thorax);
 })
 
 app.use(express.static(__dirname));

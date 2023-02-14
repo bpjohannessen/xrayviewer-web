@@ -36,53 +36,84 @@
   <script src="js/magnific-popup.js"></script>
 
   <!-- Custom xray JS -->
-
+  <script>/*for templating*/</script>
+  <script src="js/xray.js"></script>
   <script>
+    $(document).ready(function() {
+        //https://stackoverflow.com/questions/5999118/how-can-i-add-or-update-a-query-string-parameter
+        const getUriWithParam = (baseUrl, params) => {
+            const Url = new URL(baseUrl);
+            const urlParams = new URLSearchParams(Url.search);
+            for (const key in params) {
+                if (params[key] !== undefined) {
+                urlParams.set(key, params[key]);
+                }
+            }
+            Url.search = urlParams.toString();
+            return Url.toString();
+        };
 
-// $(document).ready(function() {
-//     $('.popup-gallery').each(function() {
-//     $(this).magnificPopup({
-// 		delegate: 'a',
-// 		type: 'image',
-// 		tLoading: 'Loading image #%curr%...',
-// 		mainClass: 'mfp-img-mobile',
-// 		gallery: {
-// 			enabled: true,
-// 			navigateByImgClick: true,
-// 			preload: [0,1] // Will preload 0 - before current, and 1 after the current image
-// 		},
-// 		image: {
-// 			tError: '<a href="%url%">The image #%curr%</a> could not be loaded.',
-// 			titleSrc: function(item) {
-// 				return item.el.attr('title') + '<small>FETTENAJS X-ray viewer</small>';
-// 			}
-// 		}
-//     });
-// });
-// });
+		const params = new URL(location.href).searchParams;
+		const diagnosis = params.get('diagnosis');
 
-</script>
-<script src="js/xray.js"></script>
+        const localurl = window.location.href;
+        console.log(localurl);
+        
+        if(diagnosis == "on") {
+            coursesuffix = "&diagnosis=on";
+            dgsuffix = "";
+            var dgswitchhref = getUriWithParam(localurl, {diagnosis: "off"});
+            //console.log("test log to off: " + test);
+        } else {
+            coursesuffix = "&diagnosis=off";
+            var dgswitchhref = getUriWithParam(localurl, {diagnosis: "on"});
+            //console.log("test log to on: " + test);
+
+        }
+
+        var orthohref = "ortho" + coursesuffix;
+        var pulmohref = "pulmo" + coursesuffix;
+        var pedsurghref = "pedsurg" + coursesuffix;
+
+        var ortholink = document.getElementById('ortholink');
+        ortholink.href = orthohref;
+
+        var pulmolink = document.getElementById('pulmolink');
+        pulmolink.href = pulmohref;
+
+        var pedsurglink = document.getElementById('pedsurglink');
+        pedsurglink.href = pedsurghref;
+
+        var dglinkid = document.getElementById('dglinkswitch');
+        dglinkid.href = dgswitchhref;
+
+
+    })
+  </script>
 
 </head>
 <body>
-<div class="container" style="margin-top: 20px;">
+<div class="container" style="margin-top: 0px;">
     <div class="row">
         <div class="two columns"></div>
-        <div class="ten columns">
-            <h4>FETTENAJS X-ray viewer</h4>
-            <p style="font-weight: bold;">Please be advised: It may take some time to load this page (65.5 MB).</p>
-            
-            <ul id="nav">
-                <!-- <li><a href="#home">Home</a></li> -->
-                <li><a href="#ortho">Orthopaedics</a></li>
-                <li><a href="#pulmo">Pulmonology</a></li>
-                <li><a href="#pedsurg">Pediatric surgery</a></li>
-                <!-- <li style="float: right;"><a href="#hide" style="color: red">Diagnosis ON/OFF</a></li> -->
-            </ul>
+        <div class="ten columns" id="scrolldiv"  style="margin: 0 auto; width: 50%;">
+            <nav>
+                <h4>FETTENAJS X-ray viewer</h4>
+                <p style="font-weight: bold;">Please be advised: It may take some time to load this page (65.5 MB).<br>
+                PRO TIP #1: Click on the images for zoom and gallery function.<br>
+                PRO TIP #2: Click on the case #number to show the diagnosis</p>
+            </p>
+                <ul id="nav">
+                    <!-- <li><a href="#home">Home</a></li> -->
+                    <li><a id="ortholink">Orthopaedics</a></li>
+                    <li><a id="pulmolink">Pulmonology</a></li>
+                    <li><a id="pedsurglink">Pediatric surgery</a></li>
+                    <li style="float: right;"><a id="dglinkswitch" style="color: red">Diagnosis ON/OFF</a></li>
+                </ul>
+            </nav>
         </div>
     </div>
-    <div class="row">
+    <div class="row" style="padding-top: 250px;">
         <div class="two columns"></div>
         <div class="ten columns" id="main">
             <table id="tableMain">

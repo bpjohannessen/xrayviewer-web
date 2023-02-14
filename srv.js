@@ -1,7 +1,6 @@
 /*
  * Server for xrayviewer-web
  */
-
 // Directories for different courses
 const dir_ortho = "./src/ortho";
 const dir_pedsurg = "./src/pedsurg";
@@ -53,8 +52,10 @@ app.get("/api/thorax", (req, res) => {
 app.use(express.static(__dirname));
 
 // Serves the index.html
-app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "/index.html"));
+app.get("/:course", function(req, res) {
+    console.log(req.params.course);
+    //res.sendFile(path.join(__dirname, "/index.html"));
+    res.redirect("index.html?course="+req.params.course);
 });
 
 // Returns 404 if any other file

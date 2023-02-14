@@ -22,3 +22,10 @@ li {
   li a:hover {
     background-color: #111111;
   }
+
+  nav{
+    position:fixed;
+    width:60%; /*found the width-info on Skeleton website*/
+    background-color: white;    
+  }
+

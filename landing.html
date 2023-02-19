@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>FETTENAJS X-ray viewer</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2" rel="stylesheet" />
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/magnific-popup.css">
+
+  <!-- Custom xray css-->
+  <!-- <link rel="stylesheet" href="css/xray.css" /> -->
+  <link rel="stylesheet" href="css/landing.css" />
+
+  <!-- Favicon -->
+  <!-- <link rel="icon" type="image/png" href="images/favicon.png"> -->
+
+  <!-- JS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="js/magnific-popup.js"></script>
+
+  <!-- Custom xray JS -->
+  <script>/*for templating*/</script>
+  <script src="js/xray.js"></script>
+  <script>
+    $(document).ready(function() {
+        //https://stackoverflow.com/questions/796087/make-a-div-into-a-link
+        $("[data-link]").click(function() {
+            window.location.href = $(this).attr("data-link");
+            return false;
+        });
+    });
+  </script>
+
+</head>
+<body>
+    <div class="container">
+        <!-- code here -->
+        <div class="card" data-link="/ortho">
+            <div class="card-img">
+                <img src="graphics/Humerus_white_600.png" />
+            </div>
+            <div class="card-body">
+                <h2 class="card-title">
+                    Orthopaedics
+                </h2>
+                <p class="card-intro">
+                    Common fractures.
+                </p>
+            </div>
+        </div>
+        <div class="card" data-link="/pulmo">
+            <div class="card-img">
+                <img src="graphics/Thorax_white_600.png" />
+            </div>
+            <div class="card-body">
+                <h2 class="card-title">
+                    Chest
+                </h2>
+                <p class="card-intro">
+                    Common problems in thoracic imaging.
+                </p>
+            </div>
+        </div>
+        <div class="card" data-link="/pedsurg">
+            <div class="card-img">
+                <img src="graphics/Pediatrics_600.png" />
+            </div>
+            <div class="card-body">
+                <h2 class="card-title">
+                    Pediatrics
+                </h2>
+                <p class="card-intro">
+                    A few cases of pediatric emergencies.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

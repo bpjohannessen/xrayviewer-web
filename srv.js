@@ -49,7 +49,15 @@ app.get("/api/thorax", (req, res) => {
     return res.send(tree_thorax);
 })
 
+// Serves the loading
+app.get("/", function(req, res) {
+  console.log("landing.html");
+  res.sendFile("/Users/bp/code/xrayviewer-web/landing.html");
+});
+
 app.use(express.static(__dirname));
+
+
 
 // Serves the index.html
 app.get("/:course", function(req, res) {
@@ -61,6 +69,7 @@ app.get("/:course", function(req, res) {
 // Returns 404 if any other file
 app.use("*", (req, res) => {
   res.send("404");
+  console.log("404");
 });
 
 // Starts the server on api_port

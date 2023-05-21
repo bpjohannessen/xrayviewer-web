@@ -1,4 +1,6 @@
 {
-	"diagnosis": "Anterior dislocation of the left shoulder",
-	"comment": "This is a test comment"
+	"diagnosis_en": "Anterior dislocation of the left shoulder",
+	"diagnosis_no": "Fremre skulderluksasjon",
+	"comment_en": "This is a test comment",
+	"comment_no": ""
 }

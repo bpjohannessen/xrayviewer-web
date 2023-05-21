@@ -21,4 +21,10 @@ You will need to edit the follow line in `js/xray.js` (line 23) to match your ow
 
 Browse to localhost:3000. Enjoy. And contribute if you want to!
 
+# Thanks to
+
+Stackoverflow made this project, thanks to various people:
+
+- https://stackoverflow.com/a/64068744/6607701
+
 

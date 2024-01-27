@@ -139,9 +139,9 @@ $(document).ready(function() {
 					//console.log(id);
 					//console.log(image);
 					if(dgswitch == "on") {
-						$tr.append("<td><a class='kuken' href="+filename+" title='#"+key + " - " + value._desc.diagnosis_en+"'><img src='./src/"+prefix+"/"+key + "/" +image+"' style='width: 100%; height: auto;'>");
+						$tr.append("<td style='max-width: 960px;'><a class='kuken' href="+filename+" title='#"+key + " - " + value._desc.diagnosis_en+"'><img src='./src/"+prefix+"/"+key + "/" +image+"' style='max-height: 300px;'>");
 					} else {
-						$tr.append("<td><a class='kuken' href="+filename+" title='"+key+"'><img src='./src/"+prefix+"/"+key + "/" +image+"' style='width: 100%; height: auto;'>");
+						$tr.append("<td><a class='kuken' href="+filename+" title='"+key+"'><img src='./src/"+prefix+"/"+key + "/" +image+"' style='max-height: 300px;'>");
 					}
 					//$gallerybody.append("<td><a class='kuken' href="+filename+" title='"+key+"'><img src='./src/"+prefix+"/"+key + "/" +image+"' style='width: 100%; height: auto;'>");
 					//noLeft = noImages - 1;

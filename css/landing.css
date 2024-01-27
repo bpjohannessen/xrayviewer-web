@@ -10,7 +10,8 @@
 
 body {
   font-family: "Inter", sans-serif;
-  background-color: #f2f5f7;
+  /* background-color: #f2f5f7; */
+  background-color: #F6F6F6;
 }
 
 .card {
@@ -22,14 +23,14 @@ body {
   max-width: 100%;
   background-color: #fff;
   box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.15);
-  border-radius: 10px;
+  border-radius: 20px;
   overflow: hidden;
   margin: 1rem;
 }
 
 .card:hover {
-	background-color: #000;
-	color: grey;
+	background-color: #212121;
+	color: #6D9886;
 }
 
 .card-img {
